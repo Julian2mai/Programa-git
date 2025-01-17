@@ -31,7 +31,7 @@ def generar_recibo(productos, nombre_archivo="recibo.pdf"):
         cantidad = producto['cantidad']
         total = precio * cantidad
         total_general += total
-        datos_tabla.append([nombre, f"{precio:.2f} €", str(cantidad), f"{total:.2f} €"])
+        datos_tabla.append([nombre, f"{precio:.2f} ", str(cantidad), f"{total:.2f} "])
     
     tabla_productos = Table(datos_tabla)
     tabla_productos.setStyle(TableStyle([
@@ -48,7 +48,7 @@ def generar_recibo(productos, nombre_archivo="recibo.pdf"):
     elementos.append(Spacer(1, 12))
     
     # Total general
-    elementos.append(Paragraph(f"Total General: {total_general:.2f} € ", estilo_normal))
+    elementos.append(Paragraph(f"Total General: {total_general:.2f} ", estilo_normal))
     elementos.append(Spacer(1, 24))
     
     # Firma
@@ -61,7 +61,7 @@ def generar_recibo(productos, nombre_archivo="recibo.pdf"):
 def main():
     productos = []
     while True:
-        nombre = input("Ingrese el nombre del producto (o 'fin' para terminar): ")
+        nombre = input("Ingrese el nombre del producto : ")
         if nombre.lower() == 'fin':
             break
         
